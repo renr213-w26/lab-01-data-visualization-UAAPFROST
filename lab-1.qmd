@@ -1,6 +1,7 @@
 ---
 title: "Lab 1 - Data visualization"
-format: html
+format: pdf
+author: Ayden Frost
 editor: visual
 ---
 
@@ -8,9 +9,64 @@ editor: visual
 
 ## Part 1
 
+```{r}
+library(tidyverse)
+```
+
 ### Question 1
 
+```{r}
+ggplot(midwest, aes(x = popdensity)) +
+  geom_histogram(binwidth = 100) +
+  labs(
+    x = "Population Density of Counties",
+    y = "Number of Counties", 
+    title = "Population Density of Midwesten Counties",
+    subtitle = "Binwidth = 100"
+  ) 
+```
+
+```{r}
+ggplot(midwest, aes(x = popdensity)) +
+  geom_histogram(binwidth = 1000) +
+  labs(
+    x = "Population Density of Counties",
+    y = "Number of Counties", 
+    title = "Population Density of Midwesten Counties",
+    subtitle = "Binwidth = 1000"
+  ) 
+```
+
+```{r}
+ggplot(midwest, aes(x = popdensity)) +
+  geom_histogram(binwidth = 10000) +
+  labs(
+    x = "Population Density of Counties",
+    y = "Number of Counties", 
+    title = "Population Density of Midwesten Counties",
+    subtitle = "Binwidth = 10000"
+  ) 
+
+```
+
+```{r}
+ggplot(midwest, aes(x = popdensity)) +
+  geom_histogram(binwidth = 100000) +
+  labs(
+    x = "Population Density of Counties",
+    y = "Number of Counties", 
+    title = "Population Density of Midwesten Counties",
+    subtitle = "Binwidth = 100000"
+  ) 
+```
+
+The 1000 Binwidth histogram would be ideal as it visualizes the data in a presentable way that is easy to interpret when compared to the other 3 histograms.
+
 ### Question 2
+
+```{r}
+
+```
 
 ### Question 3
 
