@@ -113,6 +113,18 @@ This new plot definitely makes analyzing the data by state much easier when comp
 
 ### Question 5
 
+```{r}
+ggplot(midwest, aes(y = area)) +
+  geom_boxplot() +
+  facet_wrap(~ state) +
+  labs(
+      y = "Area of County", 
+    title = "County Area by State"
+  )
+```
+
+Ohio and Indiana have noticeably smaller county sizes when compared to the other 3 states which sit in relatively similar ranges and have similar median county areas. Ohio and Indiana have lower median county areas as well as lower overall ranges for said areas. MARQUETTE county Michigan has the highest county area.
+
 ### Question 6
 
 ### Question 7
