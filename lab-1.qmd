@@ -20,7 +20,7 @@ data("midwest")
 ggplot(midwest, aes(x = popdensity)) +
   geom_histogram(binwidth = 100) +
   labs(
-    x = "Population Density of Counties",
+    x = "Population Density of Counties (Person/unit area)",
     y = "Number of Counties", 
     title = "Population Density of Midwesten Counties",
     subtitle = "Binwidth = 100"
@@ -31,7 +31,7 @@ ggplot(midwest, aes(x = popdensity)) +
 ggplot(midwest, aes(x = popdensity)) +
   geom_histogram(binwidth = 1000) +
   labs(
-    x = "Population Density of Counties",
+    x = "Population Density of Counties (Person/unit area)",
     y = "Number of Counties", 
     title = "Population Density of Midwesten Counties",
     subtitle = "Binwidth = 1000"
@@ -42,7 +42,7 @@ ggplot(midwest, aes(x = popdensity)) +
 ggplot(midwest, aes(x = popdensity)) +
   geom_histogram(binwidth = 10000) +
   labs(
-    x = "Population Density of Counties",
+    x = "Population Density of Counties (Person/unit area)",
     y = "Number of Counties", 
     title = "Population Density of Midwesten Counties",
     subtitle = "Binwidth = 10000"
@@ -54,7 +54,7 @@ ggplot(midwest, aes(x = popdensity)) +
 ggplot(midwest, aes(x = popdensity)) +
   geom_histogram(binwidth = 100000) +
   labs(
-    x = "Population Density of Counties",
+    x = "Population Density of Counties (Person/unit area)",
     y = "Number of Counties", 
     title = "Population Density of Midwesten Counties",
     subtitle = "Binwidth = 100000"
@@ -69,14 +69,14 @@ The 1000 Binwidth histogram would be ideal as it visualizes the data in a presen
 ggplot(midwest, aes(y = popdensity)) +
   geom_boxplot() +
   labs(
-      y = "Population Density of Counties", 
+      y = "Population Density of Counties (Person/unit area)", 
     title = "Population Density of Midwesten Counties",
     subtitle = "Binwidth = 100"
   )
 
 ```
 
-The distribution of population sizes amongst counties displayed in both the histogram and boxplot show that most counties tend to be under 12,500 individuals per unit area, with only a small handful of counties breaking the threshold. One county that stands out is Cook county, as it has a population density of roughly 88,000. The most likely reason behind this could be the existence of a city or larger community within the county.
+The distribution of population sizes amongst counties displayed in both the histogram and boxplot show that most counties tend to be between 0 to 12,500 individuals per unit area, with only a small handful of counties breaking the threshold. One county that stands out is Cook county, as it has a population density of roughly 88,000. The most likely reason behind this could be the existence of a city or larger community within the county.
 
 ### Question 3
 
@@ -110,21 +110,21 @@ ggplot(midwest, aes(y = percbelowpoverty, x = percollege, color = state, shape =
   )
 ```
 
-This new plot definitely makes analyzing the data by state much easier when compared to the heavily congested scatterplot in question 3. The data is much more clear and concise in the facet wrapped scatter plot.
+This new plot makes analyzing the data by state much easier when compared to the heavily congested scatterplot in question 3. The data is more clear and concise in the facet wrapped scatterplot.
 
 ### Question 5
 
 ```{r}
-ggplot(midwest, aes(y = area)) +
+ggplot(midwest, aes(x = state, y = area)) +
   geom_boxplot() +
-  facet_wrap(~ state) +
   labs(
-      y = "Area of County", 
+      y = "Area of County",
+      x = "State",
     title = "County Area by State"
   )
 ```
 
-Ohio and Indiana have noticeably smaller county sizes when compared to the other 3 states which sit in relatively similar ranges and have similar median county areas. Ohio and Indiana have lower median county areas as well as lower overall ranges for said areas. MARQUETTE county Michigan has the highest county area.
+Ohio and Indiana have noticeably smaller county sizes when compared to the other 3 states which contain relatively similar ranges and have similar median county areas. Ohio and Indiana have lower median county areas as well as lower overall ranges for said areas. MARQUETTE county Michigan has the highest county area.
 
 ### Question 6
 
@@ -161,7 +161,7 @@ ggplot(midwest, aes(y = percbelowpoverty, x = percollege, color = percwhite)) +
   theme_minimal()
 ```
 
-One county that is a clear outlier is MENOMINEE. In this councty 89 percent of the population is Indian American and another 10 percent is white, while the remaining population is neither asian or black but instead a mix of other races.
+One county that is a clear outlier is MENOMINEE. In this county 89 percent of the population is Indian American and another 10 percent is white, while the remaining population is neither Asian or black but instead a mix of other races.
 
 ## Part 2
 
@@ -179,8 +179,8 @@ nc_county <- read_csv("data/nc-county.csv")
 ggplot(nc_county, aes(y = density, x = land_area_mi2)) +
   geom_point() +
   labs(
-    x = "Population Density",
-    y = "Land Area",
+    y = "Population Density",
+    x = "Land Area (Miles Squared)",
     title = "Land Area vs Population Density"
   )
 
@@ -189,3 +189,15 @@ ggplot(nc_county, aes(y = density, x = land_area_mi2)) +
 The scatterplot shows that there is no clear relationship between the two variables, thus my guess was incorrect.
 
 ### Question 9
+
+```{r}
+ggplot(nc_county, aes(y = density, x = land_area_m2)) +
+  geom_point() +
+  labs(
+    y = "Population Density",
+    x = "Land Area (Meters Squared)",
+    title = "Land Area vs Population Density"
+  )
+```
+
+The data is displayed exact the same as the plot in question 8, apart from the difference in values along the x-axis that subsequently changed due to the measurement conversion.
