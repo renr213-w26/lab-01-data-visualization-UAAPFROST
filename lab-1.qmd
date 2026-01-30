@@ -11,6 +11,7 @@ editor: visual
 
 ```{r}
 library(tidyverse)
+data("midwest")
 ```
 
 ### Question 1
@@ -126,6 +127,24 @@ ggplot(midwest, aes(y = area)) +
 Ohio and Indiana have noticeably smaller county sizes when compared to the other 3 states which sit in relatively similar ranges and have similar median county areas. Ohio and Indiana have lower median county areas as well as lower overall ranges for said areas. MARQUETTE county Michigan has the highest county area.
 
 ### Question 6
+
+```{r}
+midwest <- midwest |>
+  mutate(metro = if_else(inmetro == 1, "Yes", "No"))
+ggplot(midwest, aes(x = state, , fill = metro)) +
+  geom_bar(position = "fill") +
+  labs(
+    x = "State",
+    y = "Proportion of Counties in Metro Areas",
+    fill = "Classified as Metro",
+    title = "Proportion of Metro vs Non Metro Counties by State"
+  ) 
+
+  
+
+```
+
+Indiana and Ohio both tend to have more counties that are considered metro in comparison to the other 3 states. Both Indiana and Ohio seem to have roughly 10-15% more counties that are classified as metro.
 
 ### Question 7
 
