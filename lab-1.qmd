@@ -80,7 +80,7 @@ The distribution of population sizes amongst counties displayed in both the hist
 ### Question 3
 
 ```{r}
-ggplot(midwest, aes(x = percbelowpoverty, y = percollege, color = state, shape = state)) +
+ggplot(midwest, aes(y = percbelowpoverty, x = percollege, color = state, shape = state)) +
   geom_point() +
   labs(
     color = "State",
@@ -91,9 +91,25 @@ ggplot(midwest, aes(x = percbelowpoverty, y = percollege, color = state, shape =
   )
 ```
 
-The scatterplot shows that as populations become more educated and have degrees, they tend to see fewer people in poverty when compared to less educated populations. The one county that stood out greatly is Washtenaw county where nearly 50% of the popluation has a degree and only roughly 12% sit below poverty. It would be very difficult to determine the state trends as the data within the scatterplot is very congested and hard to read if trying to make inferences on the states.
+The scatterplot shows that as populations become more educated and have degrees, they tend to see fewer people in poverty when compared to less educated populations. The one county that stood out greatly is MENOMINEE county where nearly 50% of the population sits below the poverty line while only roughly 7% have a degree. It would be very difficult to determine the state trends as the data within the scatterplot is very congested and hard to read if trying to make inferences on the states.
 
 ### Question 4
+
+```{r}
+ggplot(midwest, aes(y = percbelowpoverty, x = percollege, color = state, shape = state)) +
+  geom_point() +
+  facet_wrap(~ state) +
+  geom_smooth(se = FALSE) +
+  labs(
+    color = "State",
+    shape = "State",
+    x = "Percentage of People with a College Degree",
+    y = "Percentage of Population Below Poverty",
+    title = "People with a College Degree vs Poverty by State"
+  )
+```
+
+This new plot definitely makes analyzing the data by state much easier when compared to the heavily congested scatterplot in question 3. The data is much more clear and concise in the facet wrapped scatter plot.
 
 ### Question 5
 
