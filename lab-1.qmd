@@ -65,8 +65,17 @@ The 1000 Binwidth histogram would be ideal as it visualizes the data in a presen
 ### Question 2
 
 ```{r}
+ggplot(midwest, aes(y = popdensity)) +
+  geom_boxplot() +
+  labs(
+      y = "Population Density of Counties", 
+    title = "Population Density of Midwesten Counties",
+    subtitle = "Binwidth = 100"
+  )
 
 ```
+
+The distribution of population sizes amongst counties displayed in both the histogram and boxplot show that most counties tend to be under 12,500 individuals per unit area, with only a small handful of counties breaking the threshold. One county that stands out is Cook county, as it has a population density of roughly 88,000. The most likely reason behind this could be the existence of a city or larger community within the county.
 
 ### Question 3
 
