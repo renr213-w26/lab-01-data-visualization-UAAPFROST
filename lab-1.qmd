@@ -79,6 +79,20 @@ The distribution of population sizes amongst counties displayed in both the hist
 
 ### Question 3
 
+```{r}
+ggplot(midwest, aes(x = percbelowpoverty, y = percollege, color = state, shape = state)) +
+  geom_point() +
+  labs(
+    color = "State",
+    shape = "State",
+    x = "Percentage of People with a College Degree",
+    y = "Percentage of Population Below Poverty",
+    title = "People with a College Degree vs Poverty by State"
+  )
+```
+
+The scatterplot shows that as populations become more educated and have degrees, they tend to see fewer people in poverty when compared to less educated populations. The one county that stood out greatly is Washtenaw county where nearly 50% of the popluation has a degree and only roughly 12% sit below poverty. It would be very difficult to determine the state trends as the data within the scatterplot is very congested and hard to read if trying to make inferences on the states.
+
 ### Question 4
 
 ### Question 5
