@@ -148,6 +148,21 @@ Indiana and Ohio both tend to have more counties that are considered metro in co
 
 ### Question 7
 
+```{r}
+ggplot(midwest, aes(y = percbelowpoverty, x = percollege, color = percwhite)) +
+  geom_point(size = 2, alpha = 0.5) +
+  facet_wrap(~ state) +
+  labs(
+    color = "% white",
+    x = "Percentage of People with a College Degree",
+    y = "Percentage of Population Below Poverty",
+    title = "People with a College Degree vs Poverty by State"
+  ) +
+  theme_minimal()
+```
+
+One county that is a clear outlier is MENOMINEE. In this councty 89 percent of the population is Indian American and another 10 percent is white, while the remaining population is neither asian or black but instead a mix of other races.
+
 ## Part 2
 
 **Enough about the Midwest!**
