@@ -169,4 +169,23 @@ One county that is a clear outlier is MENOMINEE. In this councty 89 percent of t
 
 ### Question 8
 
+I would estimate that as land areas increase, population densities will decrease. Thus i would guess that they have a negative relationship.
+
+```{r}
+nc_county <- read_csv("data/nc-county.csv")
+```
+
+```{r}
+ggplot(nc_county, aes(y = density, x = land_area_mi2)) +
+  geom_point() +
+  labs(
+    x = "Population Density",
+    y = "Land Area",
+    title = "Land Area vs Population Density"
+  )
+
+```
+
+The scatterplot shows that there is no clear relationship between the two variables, thus my guess was incorrect.
+
 ### Question 9
